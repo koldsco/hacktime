@@ -3,7 +3,7 @@ from stop_words import StopWords
 
 ES_CONFIG = {
     'index': 'apm',
-    'type': 'hackathon',
+    'type': 'test-02',
     'path': 'https://search-escloud-ir7f3gyru66ibel5pnp3bdjzoi.us-west-2.es.amazonaws.com/'
 }
 
