@@ -44,4 +44,4 @@ class StopWords:
             if not self.is_stopword(word):
                 out.append(word)
 
-        return out
+        return " ".join(out)
