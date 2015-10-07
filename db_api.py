@@ -3,7 +3,7 @@
 import requests
 from stop_words import StopWords
 import json
-import sys
+import sys,os
 
 ES_CONFIG = {
     'index': 'apm',
@@ -30,7 +30,9 @@ def save_to_ES(s3, text, category):
         return False
 
 def read_json(file_name):
-    with open(file_name) as f:
+    tempfile = "/tmp/%s"%file_name
+    os.system("aws s3 cp s3://teamname-files/%s %s"%(file_name,tempfile))
+    with open(tempfile) as f:
         j = json.load(f)
 
     return j
