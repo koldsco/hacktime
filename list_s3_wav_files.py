@@ -24,7 +24,7 @@ if __name__ == "__main__":
         relevant_keys = get_all_keys(region=S3_REGION, bucket=S3_BUCKET, prefix=S3_PREFIX, extension='.wav')
 
         for key in relevant_keys:
-            print key
+            print "http://%s.s3.amazonaws.com/%s" % (S3_BUCKET, key)
 
     # MAIN program begins here
     main() 

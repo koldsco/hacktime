@@ -41,7 +41,7 @@ if __name__ == "__main__":
     def main():
         json_name = sys.argv[1]
         json_obj = read_json(json_name)
-        text, s3file, category = json_obj["text"], json_obj["s3file"], json_obj["entities"]
+        text, s3file, category, fulllink = json_obj["text"], json_obj["s3file"], json_obj["entities"],json_obj["fulladdr"]
 
         print save_to_ES(s3file, text, category)
 
