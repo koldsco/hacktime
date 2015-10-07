@@ -3,7 +3,7 @@ from stop_words import StopWords
 
 ES_CONFIG = {
     'index': 'apm',
-    'type': 'test-02',
+    'type': 'test-03',
     'path': 'https://search-escloud-ir7f3gyru66ibel5pnp3bdjzoi.us-west-2.es.amazonaws.com/'
 }
 
@@ -20,5 +20,3 @@ def save_to_ES(s3, text):
         return True
     else:
         return False
-
-
