@@ -1,5 +1,9 @@
+#! /usr/bin/env python
+
 import requests
 from stop_words import StopWords
+import json
+import sys
 
 ES_CONFIG = {
     'index': 'apm',
@@ -19,4 +23,24 @@ def save_to_ES(s3, text):
     if 200 <= r.status_code < 300:
         return True
     else:
+        print url
+        print r.reason
+        print r.status_code
         return False
+
+def read_json(file_name):
+    with open(file_name) as f:
+        j = json.load(f)
+
+    return j
+
+if __name__ == "__main__":
+    def main():
+        json_name = sys.argv[1]
+        json_obj = read_json(json_name)
+        text, s3file = json_obj["text"], json_obj["s3file"]
+
+        print save_to_ES(s3file, text)
+
+    # MAIN
+    main()
