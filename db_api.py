@@ -16,7 +16,7 @@ def save_to_ES(s3, text):
     }
     url = '{path}{index}/{type}/{s3}'.format(s3=s3, **ES_CONFIG)
     r = requests.put(url, json=body)
-    if r.status_code == 200:
+    if 200 <= r.status_code < 300:
         return True
     else:
         return False
